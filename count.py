@@ -7,3 +7,7 @@ def count_words(sentence):
     for word in words:
         word_dict[word] = words.count(word)
     return word_dict
+
+
+if '__name__' == '__main__':
+    count_words()

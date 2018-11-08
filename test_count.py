@@ -28,7 +28,7 @@ class CountWordsTests(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_symbols(self):
         actual = count_words("¿Te gusta Python?")
         expected = {'te': 1, 'gusta': 1, 'python': 1}

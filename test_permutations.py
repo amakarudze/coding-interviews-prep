@@ -1,19 +1,24 @@
 """Program that accepts two strings and check if one is a permutation of the other."""
 
+from itertools import permutations
 
-def permutations(word1, word2):
-    if set(word1) == set(word2):
-        is_perm = True
-    else:
-        is_perm = False
-    return is_perm
+
+def perms(word):
+    is_palindrome = False
+    for w in permutations(word.lower()):
+        if w == w[::-1]:
+            is_palindrome = True
+        else:
+            is_palindrome = False
+        print(w)
+    return is_palindrome
 
 
 def test_permutations():
-    assert permutations('pale', 'leap') == True
-    assert permutations('data', 'tada') == True
-    assert permutations('hear', 'here') == False
+    assert perms('anna') == True
+    assert perms('Tact Coa') == False
+    assert perms('hear') == False
 
 
 if '__name__' == '__main__':
-    permutations()
+    perms()

@@ -1,22 +1,21 @@
-"""This function accepts two words and checks if one is an edit of the other."""
+"""Tests for oneaway module using unittest library and not pytest."""
 
-from collections import Counter
+import unittest
 
-
-def oneaway(word1, word2):
-    return True if len(Counter(word1) - Counter(word2)) == 1 else False
+from oneaway import one_away
 
 
-def test_one_edit():
-    assert oneaway('pale', 'ple') == True
-    assert oneaway('pales', 'pale') == True
-    assert oneaway('pale', 'bale') == True
+class OneAwayTest(unittest.TestCase):
 
+    def test_one_edit(self):
+        self.assertTrue(one_away('pale', 'ple'))
+        self.assertTrue(one_away('pales', 'pale'))
+        self.assertTrue(one_away('pale', 'bale'))
 
-def test_not_one_edit():
-    assert oneaway('pale', 'bake') == False
-    assert oneaway('eat', 'drink') == False
+    def test_not_one_edit(self):
+        self.assertFalse(one_away('pale', 'bake'))
+        self.assertFalse(one_away('eat', 'drink'))
 
 
 if '__name__' == '__main__':
-    oneaway()
+    unittest.main()
